@@ -20,7 +20,10 @@
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    首页
+                                </jet-nav-link>
+                                <jet-nav-link :href="route('customer')" :active="route().current('customer')">
+                                    客户档案
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -46,23 +49,23 @@
                                             <!-- Team Management -->
                                             <template v-if="$page.props.jetstream.hasTeamFeatures">
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Manage Team
+                                                    管理团队
                                                 </div>
 
                                                 <!-- Team Settings -->
                                                 <jet-dropdown-link :href="route('teams.show', $page.props.user.current_team)">
-                                                    Team Settings
+                                                    团队设置
                                                 </jet-dropdown-link>
 
                                                 <jet-dropdown-link :href="route('teams.create')" v-if="$page.props.jetstream.canCreateTeams">
-                                                    Create New Team
+                                                    创建新团队
                                                 </jet-dropdown-link>
 
                                                 <div class="border-t border-gray-100"></div>
 
                                                 <!-- Team Switcher -->
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Switch Teams
+                                                    切换团队
                                                 </div>
 
                                                 <template v-for="team in $page.props.user.all_teams" :key="team.id">
@@ -143,7 +146,10 @@
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                            首页
+                        </jet-responsive-nav-link>
+                        <jet-responsive-nav-link :href="route('customer')" :active="route().current('customer')">
+                            客户档案
                         </jet-responsive-nav-link>
                     </div>
 

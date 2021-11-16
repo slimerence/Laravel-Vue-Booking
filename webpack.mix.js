@@ -10,15 +10,20 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+mix.options({
+    legacyNodePolyfills: true
+});
 
-mix.browserSync('public.test')
+mix.browserSync('booking.test')
 
-mix.js('resources/js/app.js', 'public/js').vue()
+mix.js('resources/js/app.js', 'public/js').vue({version: 3})
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
     ])
     .webpackConfig(require('./webpack.config'));
+
+
 
 if (mix.inProduction()) {
     mix.version();

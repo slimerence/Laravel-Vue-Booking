@@ -6,4 +6,14 @@ module.exports = {
             '@': path.resolve('resources/js'),
         },
     },
+    module: {
+        rules: [
+            {
+                test: /\.m?js/,
+                resolve: {
+                    fullySpecified: false
+                }
+            }
+        ]
+    }
 };
